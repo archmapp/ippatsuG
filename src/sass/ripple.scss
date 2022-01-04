@@ -1,0 +1,50 @@
+$ripple-radius: 52px;
+$ripple-color: #f03a5f;
+$ripple-hover: lighten($ripple-color, 10%);
+$ripple-active: lighten($ripple-color, 24%);
+
+// .btn {
+#jikan {
+	// display: inline-block;
+  width: 61px;
+
+	position: relative;
+	// height: $ripple-radius;
+	// padding: 0 $ripple-radius;
+	background: $ripple-color;
+	border: 2px solid $ripple-color;
+	overflow: hidden;
+	transition: all 0.3s ease-in;
+}
+
+#jikan:hover {
+	background: $ripple-hover;
+}
+/* #jikan:active span::after { */
+#jikan:active::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: $ripple-radius * 2;
+	height: $ripple-radius * 2;
+
+	margin-top: -$ripple-radius;
+	margin-left: -$ripple-radius;
+	content: '';
+	background: $ripple-active;
+	// opacity: 0;
+	animation: ripple 0.3s 1 ease-out;
+	
+	border-radius: 100%;
+}
+
+@keyframes ripple {
+	0% {
+		opacity: 1;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,46 @@
+<!-- /* https://web-designer.cman.jp/css_ref/abc_list/backface-visibility/ */ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>backface-visibility</title>
+
+		<style>
+			.target {
+				margin: 10px auto;
+				padding: 30px 0;
+				width: 200px;
+				height: 80px;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			.target.visible {
+				background: #fed;
+				animation: spin 3s linear infinite;
+				backface-visibility: visible;
+			}
+			.target.hidden {
+				background: #acf;
+				animation: spin 3s linear infinite;
+				backface-visibility: hidden;
+			}
+			@keyframes spin {
+				from {
+					transform: rotateY(0deg);
+				}
+				to {
+					transform: rotateY(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="target visible">背面を表示します。</div>
+		<div class="target hidden">背面は非表示です。</div>
+	</body>
+</html>

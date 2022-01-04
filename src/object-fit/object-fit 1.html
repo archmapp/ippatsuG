@@ -1,0 +1,85 @@
+<!-- https://webdesignday.jp/inspiration/technique/css/7976/ -->
+<!-- 【CSS】object-fitはCSSだけで画像をコンテナーにフィットさせてトリミングもできるとっても素晴らしいプロパティー -->
+
+<!-- 
+  「object-fit」はコンテナーに対して、置換要素（画像や動画）をどのように表示するかを設定します。ここでいうコンテナーとは、「div」などの画像や動画をラップする要素ではなく、画像や動画に高さ、幅を指定してそれ自体をコンテナーとします。
+ -->
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.container {
+				display: flex;
+				justify-content: space-between;
+			}
+			.container-item {
+				width: 30%;
+			}
+			.container-item-img {
+				border: 1px solid #ccc;
+				height: 150px;
+				overflow: hidden;
+			}
+			.container-item-img img {
+				display: block;
+				height: auto;
+				max-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-4.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-5.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-6.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

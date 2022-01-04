@@ -1,0 +1,114 @@
+<!-- /* https://web-designer.cman.jp/css_ref/abc_list/backface-visibility/ */ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>backface-visibility</title>
+
+		<style type="text/css">
+			.common div {
+				font-family: 'メイリオ', sans-serif;
+			}
+
+			div.cssTitle {
+				width: 290px;
+				margin-top: 10px;
+				background: #6495ed;
+				color: #fff;
+				font-weight: bold;
+				border: 2px solid #6495ed;
+				padding: 10px;
+			}
+			.css-border {
+				width: 290px;
+				border: 2px solid #6495ed;
+				background: #e7e7ff;
+				padding: 10px;
+			}
+
+			/* 
+        backface-visibility「裏面の表示」 要素の裏面の表示／非表示を指定します。 要素を３Ｄで回転した場合、要素の裏面が見える状態の時の表示／非表示や、 立方体の内側の表示／非表示を指定する時に使用します。
+        https: //web-designer.cman.jp/css_ref/abc_list/backface-visibility/
+*/
+			.css-hidden {
+				backface-visibility: hidden;
+			}
+			.css-visible {
+				backface-visibility: visible;
+			}
+
+			.css-front,
+			.css-back {
+				position: absolute;
+				width: 100px;
+				border: 1px solid #999;
+				text-align: center;
+				padding: 10px;
+			}
+			.css-front {
+				background: skyblue;
+			}
+			.css-back {
+				background: silver;
+				transform: rotateY(180deg);
+			}
+			/* 
+      transform-style 「要素重なり時の３D表示」
+        「transform-style」は「transform」で変形した要素
+        の重なり方を指定することができます。
+        重なり方は「2D」「3D」より選択することができます。
+      */
+			.css-rotate {
+				width: 120px;
+				transform-style: preserve-3d;
+			}
+
+			.css-animation {
+				animation: rotate 2s linear infinite;
+			}
+			@keyframes rotate {
+				from {
+					transform: rotateY(0deg);
+				}
+				to {
+					transform: rotateY(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="common">
+			<div class="cssTitle">backface-visibility : hidden;</div>
+			<div class="css-border">
+				<div class="css-hidden css-front css-animation">ＦＲＯＮＴ</div>
+				<br /><br /><br />
+				<div>裏面が表示されない</div>
+			</div>
+
+			<div class="cssTitle">backface-visibility : visible;</div>
+			<div class="css-border">
+				<div class="css-visible css-front css-animation">ＦＲＯＮＴ</div>
+				<br /><br /><br />
+				<div>裏面（文字が裏返し）が表示される</div>
+			</div>
+      
+			<div class="cssTitle">backface-visibility : hidden;</div>
+			<div class="css-border">
+				<div class="css-rotate css-animation">
+					<div class="css-hidden css-front">ＦＲＯＮＴ</div>
+					<div class="css-hidden css-back">ANOTHER</div>
+				</div>
+				<br /><br /><br />
+				<div>
+					ＦＲＯＮＴとＢＡＣＫを重ねて指定。<br />
+					どちらも裏面は表示しない。<br />
+					ＢＡＣＫは180度回転させて、ＦＲＯＮＴと背中合わせに指定。
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

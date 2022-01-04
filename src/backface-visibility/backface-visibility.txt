@@ -1,0 +1,19 @@
+https://kubogen.com/web-programing-182/
+
+backface-visibilityで3D変形要素の背面を表示させる
+ 
+backface-visibilityプロパティは、3D空間で変形した要素の背面を表示させるなどの指定をするプロパティです。
+
+{backface-visibility: 表示方法;}
+x軸、y軸を基準にして要素を回転した場合などで、背面を表示するかを選択することができます。
+
+backface-visibilityの値の指定方法
+backface-visibilityプロパティでは、以下のような値を指定できます。
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		visible
+		visibleを指定すると、要素の背面が表示されるので、内容が裏返しに見えるようになります。
+
+		hidden
+		hiddenを指定すると、要素の背面は表示されません。
+

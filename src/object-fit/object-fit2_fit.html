@@ -1,0 +1,231 @@
+<!-- https://webdesignday.jp/inspiration/technique/css/7976/ -->
+<!-- 【CSS】object-fitはCSSだけで画像をコンテナーにフィットさせてトリミングもできるとっても素晴らしいプロパティー -->
+
+<!-- 
+  「object-fit」はコンテナーに対して、置換要素（画像や動画）をどのように表示するかを設定します。ここでいうコンテナーとは、「div」などの画像や動画をラップする要素ではなく、画像や動画に高さ、幅を指定してそれ自体をコンテナーとします。
+ -->
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.container {
+				display: flex;
+				justify-content: space-between;
+			}
+			.container-item {
+				width: 30%;
+			}
+			.container-item-img {
+				border: 1px solid #ccc;
+			}
+			.container-item-img img {
+				/* display: block; */
+				height: 150px;
+				object-fit: fill;
+				width: 100%;
+			}
+			
+			.container-item-img img.contain {
+				display: block;
+				height: 150px;
+				object-fit: contain;
+				width: 100%;
+			}
+
+			.container-item-img img.cover {
+				display: block;
+				height: 150px;
+				object-fit: cover;
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>https://webdesignday.jp/inspiration/technique/css/7976/</p>
+		<h1>object-fit「fill」でやる</h1>
+		<h2>初期値の「fill」: 初期値の「fill」では縦横比は無視</h2>
+		<div class="container">
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-4.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-5.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-6.jpg"
+						alt=""
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+		</div>
+
+		<hr />
+		<h2>
+			contain:
+			縦横比を維持しつつ、コンテナーからはみ出さないようにぴったりフィット
+		</h2>
+		<h3>縦横比が崩れているわけでもないですがコンテナーに余白が出ています。</h3>
+		<div class="container">
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-4.jpg"
+						alt=""
+						class="contain"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-5.jpg"
+						alt=""
+						class="contain"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-6.jpg"
+						alt=""
+						class="contain"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+		</div>
+
+		<hr />
+		<h2>
+			cover:
+			縦横比を維持しつつ、コンテナーからはみ出さないようにぴったりフィット
+		</h2>
+		<h3>画像はコンテナーいっぱいに余白が出ることなくフィットしています。かつ、縦横比は維持し、位置は縦横中央になり、はみ出す部分はトリミングされています。</h3>
+		<h4>「cover」を指定した場合は、縦横比を維持しつつ全体を覆うようにコンテナーにフィットします。「background-size: cover;」を背景画像ではなく通常の画像でできてしまいます。</h4>
+		<div class="container">
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-4.jpg"
+						alt=""
+						class="cover"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-5.jpg"
+						alt=""
+						class="cover"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+			<div class="container-item">
+				<div class="container-item-img">
+					<img
+						src="https://webdesignday.jp/wp-content/uploads/2020/04/p7976-6.jpg"
+						alt=""
+						class="cover"
+					/>
+				</div>
+				<h5>title here</h5>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
+					suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
+					lacus vel facilisis.
+				</p>
+			</div>
+		</div>
+
+		<hr>
+		<h2>object-fit「scale-down」</h2>
+		<p>「contain」と似ていますが、左と中央の画像はコンテナーより大きいので「contain」が指定され、右の画像はコンテナーより小さいのでリサイズされていません。</p>
+		<p>「scale-down」ではコンテナーより画像が大きい場合は「contain」を、小さい場合は「none」を指定します。「contain」と違う点はこちらはコンテナーより画像が小さい場合はリサイズされないので、画像が荒れることはありません。</p>
+
+		<hr>
+		<h2>トリミングする位置の指定「object-position」</h2>
+		<p>「object-fit」は自動で画像の配置を縦横中央にしてくれて便利なのですが、中央以外の位置を指定したい場合は「object-position」で画像の位置を指定することができます。基準点は左上で初期値は「object-position:50% 50%」です。</p>
+
+		<hr>
+		<h2>videoでやる</h2>
+		<p>動画でも画像と同様にフィットとトリミングができています。素晴らしいです。
+ </p>
+ 
+	</body>
+</html>

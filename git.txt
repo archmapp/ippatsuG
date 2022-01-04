@@ -1,0 +1,120 @@
+https://github.com/archmapp/bulmaJSR
+https://gracious-carson-8848e2.netlify.app
+
+
+
+一発勝負❣
+    Netlifyへエクスポート/buildフォルダをドラッグ＆ドロップ
+    https://vigilant-golick-76edd5.netlify.app/
+
+一発勝負❣
+   https://frosty-dubinsky-31c7c5.netlify.app/
+
+
+
+一発勝負❣
+https://github.com/archmapp/ippatsu.git
+
+[前準備]
+    npm run build
+    serve -s build または npm run build
+    フォルダ名の変更：/build => /docs
+    
+＊githubで新規プロジェクトの作成！
+
+echo "# ippatsu 一発勝負❣" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/archmapp/ippatsu.git
+git push -u origin main
+
+GitHub Pages
+GitHub Pages is designed to host your personal, organization, or project pages from a GitHub repository.
+ Your site is ready to be published at
+===>> https://archmapp.github.io/ippatsu/
+
+
+>git init
+    set .gitignore
+
+new
+>git remote add origin https://github.com/archmapp/ippatsu.git
+>git branch -M main
+
+>git add .
+>git commit -m "first"
+
+>git push -u origin main
+
+
+[Code]
+[Settings]
+  <Pages>
+  GitHub Pages
+    Branch:main -> /docs -> [Save]
+
+    https://archmapp.github.io/ippatsu/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+npm install gh-pages --save-dev
+
+[package.json]
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build", 
+
+> npm run deploy
+
+Running the command above takes care of building your application and pushing it to a branch called gh-pages, which GitHub uses to link with GitHub Pages.
+You will know that the process was successful if at the end of it you see the word Published.
+
+[GitHub Pages]
+Source
+    gh-pages    /root   [save]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+netlify
+    new Site from github
+
+  [Build settings]
+      Repository:
+          github.com/archmapp/ippatsu
+      Base directory:
+          /
+      Build command:
+          npm run build
+      Publish directory:
+          /docs
+      Deploy log visibility:
+          Logs are public
+      Builds:
+          Active
+
+第二版・Bulmaと共に！
+https://gracious-carson-8848e2.netlify.app
+
+
+(stark-quail-i6wh4kfkpr19j4k9v2zap6uu.herokudns.com)
+
+
+
+Aレコードも設定
+example.com. 3600 IN A 104.198.14.52
+
+      現在、通称としてSSLと呼ばれているものは、SSLに変わる新しい仕組みの『TLS（Transport Layer Security）』というものになっています。
+
+      厳密に言うとSSLと『TLS』は別物です。
+      インターネットで安全に通信をするために、情報を暗号化する際に必要なもので『TLS』はSSLの次世代規格です。
+      SSLであった、脆弱性を解決し生まれました。
+
+
+DNS configuration
+Point A record to 75.2.60.5
+archmapp.tech A 75.2.60.5
+      www.archmapp.tech	CNAME	3600	gracious-carson-8848e2.netlify.app	有効	

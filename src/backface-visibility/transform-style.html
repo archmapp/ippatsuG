@@ -1,0 +1,48 @@
+<!-- /* https://web-designer.cman.jp/css_ref/abc_list/backface-visibility/ */ -->
+<!-- https://web-designer.cman.jp/css_ref/abc_list/transform-style/ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>backface-visibility</title>
+
+		<style>
+			.comDiv {
+				margin: 20px auto;
+				width: 70px;
+				height: 70px;
+				line-height: 70px;
+				font-size: 60px;
+				text-align: center;
+			}
+			.oyaArea {
+				background: rgba(176, 224, 230, 0.7);
+			}
+			.koArea {
+				background: rgba(255, 193, 139, 0.7);
+				transform: perspective(200px) rotateY(40deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="comDiv oyaArea"></div>
+		<div class="comDiv koArea">A</div>
+		<hr />
+		<div class="comDiv oyaArea">
+			<div class="comDiv koArea">A</div>
+		</div>
+		<hr />
+		<!-- transform-styleで子要素の描画がフラットか立体的か指定 -->
+		<div class="comDiv oyaArea" style="transform-style: flat">
+			<div class="comDiv koArea">A</div>
+		</div>
+		<hr />
+		<div class="comDiv oyaArea" style="transform-style: preserve-3d">
+			<div class="comDiv koArea">A</div>
+		</div>
+	</body>
+</html>

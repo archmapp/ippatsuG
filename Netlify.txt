@@ -1,0 +1,196 @@
+https://blog.logrocket.com/3-ways-to-deploy-react-apps-to-netlify/
+
+Praise Adanlawo 
+Praise Adanlawo is an infrastructure and cloud engineer with good, hands-on knowledge of building CI/CD pipelines, automation, infrastructure as code (terraform), source code management, and source code containerization.
+3 ways to deploy React apps to Netlify
+December 29, 2020  6 min read 
+
+The React and Netlify logos against a white background.
+Over the past few years, Netlify has easily worked its way into the hearts and minds of many developers. Some developers consider Netlify to be the best thing that’s ever happened to them when it comes to software development and deployment.
+
+Netlify prides itself on being the fastest way to build amazing sites. It can be a serious boon to your productivity. Netlify has a popular tagline that can serve as an anchor for this tutorial:
+
+“Just git push to deploy worldwide.”
+
+Prerequisites
+The goal here is to take an in-depth look at deploying React apps using Netlify. To follow along with this tutorial, you’ll need a working knowledge of the following:
+
+Building React Applications
+Version Control (Github, Gitlab, Bitbucket etc)
+Netlify
+What does Netlify have to offer?
+Aside from the fact that most of its features are absolutely free, Netlify also eases deployments by providing the following:
+
+An easy to use UI
+Deployment within seconds
+Rolling updates, which means no downtime even during updates to site
+Rollbacks to previous working versions of your site
+Continuous integration and continuous deployment from version control
+ Instant forms for collating user data
+Netlify functions for serverless operations, etc.
+Preparing the React application for deployment
+There are three major ways for deploying applications to Netlify that we’ll be highlighting today.
+
+Before we dive into the specifics of each method, let’s touch on some generic steps that apply across all the different deployment methods.
+
+Creating a React app
+React is an open source frontend JavaScript library for building user interfaces and UI components.To get started creating a React app, we’ll use the create-react-app library to create an app called test-netlify-deployment.
+
+In the terminal, we’ll run the following command:
+
+npm install -g create-react-app
+create-react-app test-netlify-deployment
+cd test-netlify-deployment
+The commands we'll need to run to launch a Netlify test.
+The above command installs all the packages required to create a simple React application alongside some static files, thereby giving us a base to work with.
+
+For this tutorial, we’ll be deploying this sample app as is. Please feel free to make as many changes as you want to your sample application.
+
+Create a build directory
+Next, we’ll want to create a build of our application in a production-ready build folder.
+
+To accomplish this, let’s run the command below:
+
+npm run build
+This command generates a build folder that represents a minified version of the entire application, containing everything we would need to deploy the application.
+
+Now that we have our React app ready to be deployed, we can push this app to our version control of choice. In this case, we’ll choose Github.
+
+Version control with Github
+There are so many version control systems out there, but for the sake of this tutorial, we’ll focus on the Github version control system. Follow the guide here to get started with Github.
+
+We’ll create a Github repository with any name we want. Then, we’ll push our React app to the Github repo as shown in the image below. You can find my sample repo here.
+
+The Github repo for our Netlify test.
+Once we are done with this, we can dive deep into the different methods for deploying our app to Netlify.
+
+3 methods for deploying React applications to Netlify
+Method 1: Netlify UI
+This method is best suited for developers who would rather deploy and configure applications manually using the Netlify user interface rather than using the command line terminal.
+
+Connect Netlify account with Github account
+If you do not have a Netlify account already, you can create a free one here.
+
+We’re going to log into Netlify with our already created Github account and follow the prompts to authorize Netlify Auth:
+
+A screenshot of the page for authorizing Netlify Auth with Github.
+After authorizing Netlify Auth, we are redirected to our Github teams page. Next, we’ll need to create a New Site from Git, as shown below:
+
+New site created on Github.
+Authorize Netlify to access repositories
+Still on the create a new site page, we would be prompted to authorize Netlify to access the Github repositories. We can choose to give Netlify access to the entire Github account, or we can give Netlify access to a specific repository by clicking on the “Configure Netlify on GitHub” button at the bottom of the page.
+
+The page giving us the option to configure Netlify on Github.
+Build options & deploy
+After selecting the repository where the React application is hosted and choosing the deployment branch from the step above, we specify the basic build settings required to deploy the site.
+
+Although this page comes pre-populated with the build step, please check that it conforms with the command that builds your application.
+
+Once this is done, we click on the good ol’ button Deploy Site, and Voila! We’ll see the site deployment in progress.
+
+Upon successful deployment, we can preview our site with the test domain it returns.
+
+Our successfully deployed Netlify app.
+Configuring site domain
+Once we have previewed our React app deployment and feel good about how it looks, we can now configure a proper domain to serve our application. In the Deploys tab, we see details of site deployment. That’s where we register the subdomain we would like to use for our React application.
+
+If we want to use a preregistered domain, Netlify will want us to verify that the domain is ours. We’ll click on set up a custom domain from the image above. This prompts us to verify our custom domain before Netlify can configure it.
+
+A page giving us the option to create a custom domain.
+Once this is successfully verified, we can access our application on the configured domain.
+
+Netlify drag and drop
+This method is pretty similar to the first method described above. However, the drag and drop feature is unique in that it utilizes the online app feature. It is specifically suited for super fast deployments.
+
+Log in to your Netlify account
+We can follow the first step of the first method above to connect our Github account to our Netlify account. However, we’ll see that in this instance we are greeted with a blank page as shown below. This is what we refer to as the online app feature.
+
+We will not be creating a new site from git like we did in the first method.
+
+The online app feature in Netlify.
+Drag and drop
+It’s that easy!
+
+Since we have our React app with an up-to-date build folder, all we have to do is drag the build folder into the blank space above. This black space is otherwise known as the online app. Netlify does the deployment magic for us.
+
+Configuring site domain
+This follows the same approach as configuring the site domain in the first method described above.
+
+Netlify CLI
+This method is for developers who are more comfortable running deployments from the command line terminal as opposed to using the UI or the drag and drop feature
+
+Install Netlify CLI
+Installing the Netlify CLI is very quick and easy. It’s as easy as running an npm install command as shown below:
+
+npm install netlify-cli -g
+Authorize CLI
+After installing the CLI, we navigate into our working directory and run the following commands to authorize our Netlify CLI against the Netlify account:
+
+cd test-netlify-deployment 
+netlify deploy
+Note: Ensure that pop-up is not blocked in the browser window for redirects.
+
+Running the Netlify deploy command will redirect us to a browser window requesting authorization for the Netlify CLI:
+
+The page prompting us to authorize our application using the Netlify CLI.
+Deploy application
+Now that the CLI has adequate permissions to access the Netlify account, we can go ahead and deploy the application.
+
+There are a few command line prompts that we’ll want to go through together. We can navigate the prompts by using the arrow keys on your device.
+
+CLI prompt 1: This folder isn’t linked to a site yet. What would you like to do?
+
+This is the first prompt after authorizing the app. It wants to know if we want to deploy this application to a pre-existing site, or to a new site. In this case, we are deploying to a new site, so we select “Create & configure a new site”.
+
+CLI prompt 2: Choose a site name (optional)
+
+We could decide to configure the site details from here, or leave it blank so that Netlify gives us a random name. Regardless of the option you go with here, you can always update it later.
+
+Our second CLI prompt.
+From the image above, we can see how Netlify beautifully generates a custom domain URL from the site name.
+
+However, even though we have a url, we are not done with the deployment just yet.
+
+CLI prompt 3: Deploy path
+
+Since we are running the netlify deploy command in our React app working directory, our deployment path is our build folder. As a result, we’ll just need to specify the path to our build directory in response to the prompt.
+
+This is necessary, as only the build folder contains the production-ready files needed to deploy the application.
+
+Our production-ready files.
+Now we have a URL we can test with.
+
+Note: If the URL redirects to a webpage that throws a Page Not found error, this is an issue that has to do with an incorrect build file. Please run the netlify deploy command again and update the build file accordingly.
+
+“If everything looks good on your draft URL, deploy it to your main site URL with the --prod flag”
+
+Deploy application to production
+After testing with the website draft URL, we take our application live by running the command from our output above:
+
+netlify deploy --prod
+Once again, we would be required to specify the deploy path, which is the path to our build directory. After successful deployment, we get an updated website URL.
+
+The code showing our deployment to Netlify was successful.
+Two important things to note are the Unique deploy URL and the live URL, as shown above.
+
+The Unique deploy URL represents the URL specific to each deployment.
+
+The Live URL is the production website URL.
+
+We can now access our React application from the Live URL.
+
+Conclusion
+Deploying React apps and other applications with Netlify is a seamless process, owing largely to the platform’s easy to use features.
+
+Once the preferred deployment method is chosen and the requirements are met (e.g installing the CLI, if CLI is our preferred method), you can typically deploy your app to Netlify in under 60 seconds, all things being equal.
+
+I hope you enjoyed creating and deploying a React application with me. Do let me know in the comment section.
+
+Full visibility into production React apps
+Debugging React applications can be difficult, especially when users experience issues that are hard to reproduce. If you’re interested in monitoring and tracking Redux state, automatically surfacing JavaScript errors, and tracking slow network requests and component load time, try LogRocket. LogRocket Dashboard Free Trial Banner
+LogRocket is like a DVR for web apps, recording literally everything that happens on your React app. Instead of guessing why problems happen, you can aggregate and report on what state your application was in when an issue occurred. LogRocket also monitors your app's performance, reporting with metrics like client CPU load, client memory usage, and more.
+
+The LogRocket Redux middleware package adds an extra layer of visibility into your user sessions. LogRocket logs all actions and state from your Redux stores.
+
+Modernize how you debug your React apps — start monitoring for free.
+

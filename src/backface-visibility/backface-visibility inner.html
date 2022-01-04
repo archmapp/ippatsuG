@@ -1,0 +1,116 @@
+<!-- /* https://web-designer.cman.jp/css_ref/abc_list/backface-visibility/ */ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>backface-visibility</title>
+
+		<style type="text/css">
+			.common div {
+				font-family: 'メイリオ', sans-serif;
+			}
+			div.cssTitle {
+				width: 290px;
+				margin-top: 10px;
+				background: #6495ed;
+				color: #fff;
+				font-weight: bold;
+				border: 2px solid #6495ed;
+				padding: 10px;
+			}
+			.css-border {
+				width: 290px;
+				border: 2px solid #6495ed;
+				background: #e7e7ff;
+				padding: 10px;
+			}
+			.css-hidden {
+				backface-visibility: hidden;
+			}
+			.css-visible {
+				backface-visibility: visible;
+			}
+			.css-cube {
+				width: 150px;
+				height: 150px;
+				margin: 50px 0 0 50px;
+				border: none;
+				perspective: 300px;
+				/* 
+				transform-style 「要素重なり時の３D表示」
+				「transform-style」は「transform」で変形した要素の
+				重なり方を指定することができます。
+				重なり方は「2D」「3D」より選択することができます。
+				*/
+				transform-style: preserve-3d;
+			}
+			.css-face {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				border: none;
+				line-height: 100px;
+				font-size: 50px;
+				color: black;
+				text-align: center;
+				opacity: 0.5;
+			}
+			.css-forward {
+				background: silver;
+				transform: translateZ(50px);
+			}
+			.css-reverse {
+				background: lime;
+				transform: rotateY(180deg) translateZ(50px);
+			}
+			.css-right {
+				background: red;
+				transform: rotateY(90deg) translateZ(50px);
+			}
+			.css-left {
+				background: aqua;
+				transform: rotateY(-90deg) translateZ(50px);
+			}
+			.css-top {
+				background: yellow;
+				transform: rotateX(90deg) translateZ(50px);
+			}
+			.css-bottom {
+				background: fuchsia;
+				transform: rotateX(-90deg) translateZ(50px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="common">
+			<div class="cssTitle">backface-visibility : hidden;</div>
+			<div class="css-border">
+				<div class="css-cube">
+					<div class="css-hidden css-face css-forward">1</div>
+					<div class="css-hidden css-face css-reverse">2</div>
+					<div class="css-hidden css-face css-right">3</div>
+					<div class="css-hidden css-face css-left">4</div>
+					<div class="css-hidden css-face css-top">5</div>
+					<div class="css-hidden css-face css-bottom">6</div>
+				</div>
+				<div>内側が表示されない</div>
+			</div>
+			<div class="cssTitle">backface-visibility : visible;</div>
+			<div class="css-border">
+				<div class="css-cube">
+					<div class="css-visible css-face css-forward">1</div>
+					<div class="css-visible css-face css-reverse">2</div>
+					<div class="css-visible css-face css-right">3</div>
+					<div class="css-visible css-face css-left">4</div>
+					<div class="css-visible css-face css-top">5</div>
+					<div class="css-visible css-face css-bottom">6</div>
+				</div>
+				<div>内側（裏面）が表示される</div>
+			</div>
+		</div>
+	</body>
+</html>

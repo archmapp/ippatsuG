@@ -1,0 +1,40 @@
+{
+  "name": "flashcard-app",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://archmapp.github.io/ippatsu",
+  "devDependencies": {
+    "gh-pages": "^3.2.3",
+    "netlify-cli": "^8.0.6"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "glob": "^7.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "serve": "serve -s build -p 3300",
+    "serve-docs": "serve -s docs -p 3300",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

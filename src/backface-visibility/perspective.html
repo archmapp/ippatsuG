@@ -1,0 +1,40 @@
+<!-- https://web-designer.cman.jp/css_ref/abc_list/perspective/ -->
+
+<!-- 
+	「perspective」は「transform:perspective(値)」と同じ奥行きの表現を指定します。「transform:perspective(値)」との違いは、子要素に指定の奥行きが適用されることです。
+ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>backface-visibility</title>
+
+		<style type="text/css">
+			.parentDiv {
+				border: 1px solid #ccc;
+				padding: 40px 0;
+				width: 300px;
+			}
+			.childDiv {
+				margin: 0 auto;
+				width: 60px;
+				height: 60px;
+				transform: rotateY(20deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="parentDiv" style="perspective: 50px">
+			<div class="childDiv" style="background: rgb(176, 224, 230)"></div>
+			<div class="childDiv" style="background: rgb(255, 193, 139)"></div>
+		</div>
+		<div class="parentDiv">
+			<div class="childDiv" style="background: rgb(176, 224, 230)"></div>
+			<div class="childDiv" style="background: rgb(255, 193, 139)"></div>
+		</div>
+	</body>
+</html>

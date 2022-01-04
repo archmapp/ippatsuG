@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+@keyframes mix {
+  25% {
+    left: 200px;
+    top: 200px;
+  }
+  50% {
+    left: 200px;
+    top: 0px;
+  }
+  75% {
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.mix {
+  width:  200px;
+  height: 200px;
+  background-color: Lavender;
+  position: relative;
+  left: 0px;
+  top: 0px;
+
+  animation-name: mix;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  /* animation-timing-function: linear; */
+}

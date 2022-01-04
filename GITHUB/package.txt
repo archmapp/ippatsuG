@@ -1,0 +1,27 @@
+
+
+
+https://qiita.com/waniwaninowani/items/3eb038504dab09f9b394
+
+package.json
+   "homepage": "./",　※①
+   "postbuild": "node copyFile.js", ※②
+
+"postbuild":"node copyFile.js"
+こちらを設定することで、yarn run buildのbuildの後に指定したjsファイルが実行されるようになり、そのファイルにbuildディレクトリ内をdocsディレクトリに自動的に移動させる為のコードを追加する。
+
+copyFile.js（例）
+
+    var path = require('path');
+    var fse = require('fs-extra');
+
+    const copyPath = path.join(__dirname, "./build/");
+    const pastePath = path.join(__dirname, "./docs/");
+    //指定したpathへディレクトリ内のファイル・ディレクトリをまとめてコピー
+    fse.copySync(copyPath , pastePath);
+
+    // buildディレクトリごと、内容を削除
+    const rmdir = './build';
+    fse.removeSync(rmdir);
+
+    

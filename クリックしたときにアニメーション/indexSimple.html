@@ -1,0 +1,70 @@
+<!-- https://www.design-memo.com/coding/button-touch-animation -->
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>クリックしたときにアニメーション</title>
+	</head>
+
+	<style>
+		:root {
+			--ripple-radius: 50px;
+		}
+
+		.btn {
+			display: inline-block;
+			position: relative;
+			/* top: 0;
+			left: 0; */
+			height: $ripple-radius;
+			padding: 0 $ripple-radius;
+			background: #06a309;
+			border: 2px solid#06a309;
+			border-radius: 3px;
+			text-align: center;
+			color: #fff;
+			/* line-height: 50px; */
+			overflow: hidden;
+			transition: all 0.3s ease-in;
+		}
+		.btn:hover {
+			background: #2abc27;
+		}
+		/* .btn:active span::after { */
+		.btn:active::after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: $ripple-radius * 2;
+			height: $ripple-radius * 2;
+			/* width: 100px;
+			height: 100px; */
+			border-radius: 100%;
+			margin-top: -$ripple-radius;
+			margin-left: -$ripple-radius;
+			content: '';
+			background: #3bcc3b;
+			opacity: 0;
+			animation: ripple 0.3s 1 ease-out;
+		}
+
+		@keyframes ripple {
+			0% {
+				opacity: 1;
+				transform: scale(0);
+			}
+			100% {
+				opacity: 0;
+				transform: scale(1);
+			}
+		}
+	</style>
+
+	<body>
+		<button class="btn"><span>BUTTON</span></button>
+		<button class="btn">BUTTON</button>
+	</body>
+</html>

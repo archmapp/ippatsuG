@@ -1,0 +1,38 @@
+#jikan {
+  width: 61px;
+  position: relative;
+  background: #f03a5f;
+  border: 2px solid #f03a5f;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+}
+
+#jikan:hover {
+  background: #f46985;
+}
+
+/* #jikan:active span::after { */
+#jikan:active::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 104px;
+  height: 104px;
+  margin-top: -52px;
+  margin-left: -52px;
+  content: '';
+  background: #f9acbb;
+  animation: ripple 0.3s 1 ease-out;
+  border-radius: 100%;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

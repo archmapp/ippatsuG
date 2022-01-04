@@ -1,0 +1,469 @@
+/* https://web-designer.cman.jp/css_ref/abc_list/backface-visibility/ */
+
+body {
+  /* background-color: #C8D0D2; */
+  background: rgba(255, 248, 222, 0.1);
+  margin: 0;
+}
+
+.containerKyle {
+  max-width: 1000px;
+  margin: .5rem 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fed;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fed;
+  padding: 0px 10px;
+  border-radius: 6px 6px 0 0;
+}
+
+
+.title h3 {
+  color: green;
+  font-family: 'メイリオ',
+    'Meiryo',
+    sans-serif;
+}
+
+.title h4 {
+  color: rgb(120, 175, 37);
+}
+
+.title span {
+  color: #888;
+  font-weight: bold;
+}
+
+footer .title {
+  color: #555;
+  font-weight: bold;
+}
+
+footer .title span {
+  color: #999;
+  font-weight: bold;
+}
+
+.title span span {
+  color: rgb(0, 170, 255);
+  font-weight: bold;
+}
+
+.title li {
+  /* font-size: x-small; */
+  font-weight: 500;
+}
+
+.title ul,
+.quickview-body ul {
+  font-size: small;
+  list-style: disc;
+}
+
+
+.form-group {
+  /* display: flex;
+  flex-direction: column; */
+  margin: .5rem;
+}
+
+.form-group>label {
+  color: #777;
+  font-size: .75rem;
+  margin-right: .5rem;
+}
+
+.btn {
+  background-color: rgb(0, 170, 255);
+  color: white;
+  padding: .5em 1em;
+  border-radius: .3em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(0, 136, 204);
+}
+
+.quickview-body .message-body ul {
+  font-size: 0.75rem !important;
+}
+
+.card {
+  height: 180px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: .25rem;
+  /* 
+    transform-style 「要素重なり時の３D表示」
+    「transform-style」は「transform」で変形した要素の
+    重なり方を指定することができます。
+    重なり方は「2D」「3D」より選択することができます。
+    同じ環境にあるときは、初期状態
+        z-index順・document-flow順
+
+    奥行き（Z座標）の順に表示するには
+        transform-style: preserve-3d
+        奥行き（Z座標）にもとづいて要素を重ねることができます。
+        translateZによるZ座標
+        * 要素を交差させるときにもtransform-style: preserve-3dは必須
+
+    このサンプルでは、document-flow順で.backが上になっているが、
+    preserve-3dとrotateY(180deg)により後退して、
+    .backはアプリ開始時は見えなくなっている。
+        (環境が違う例だろう)
+  */
+  transform-style: preserve-3d;
+  transition: 150ms;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) scale(var(--scale, 1));
+  /* transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0)); */
+}
+
+.card img {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  border-radius: 5px;
+}
+
+.card:hover {
+  /* --translate-y: -2px; */
+  --scale: 1.1;
+  /* box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5); */
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front {
+  left: 0;
+  /* z-index: 1; */
+}
+
+/* 
+    rotateX(180deg)等の3D変形で要素を回転させると、デフォルトでは要素が反転した状態（裏から透かして見た状態）で表示されます。 
+    backface-visibility: hiddenを指定した要素の子要素は、回転等で裏返った状態になると画面には描画されなくなります。
+
+  */
+.card .front,
+.card .back {
+  /* 重ねる */
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  height: 180px;
+  width: 180px;
+  max-width: 190px;
+  padding: 0;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+  /* preserve-3dの場合、ちょうど180deg回ったときは、z軸上で後退するようだ。 */
+  background-color: rgba(250, 174, 61, 0.945);
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.card-grid {
+  margin: 0px 0px;
+  display: grid;
+  /* padding-top: 7px; */
+  background-color: rgb(248, 207, 214);
+
+  align-items: center;
+  /* grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  /* grid-template-rows: min-content(250px) min-content(250px) 120px; */
+  /* grid-template-rows: 180px 180px ; */
+  grid-template-rows: minmax(180px, 180px) minmax(180px, 180px);
+  grid-auto-rows: 180px;
+  gap: .7rem;
+
+}
+
+.id100 {
+  max-height: 80%;
+  max-width: 80%;
+
+  animation-name: mix-scale;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  /* transform-origin: center center; */
+  /* animation-timing-function: linear; */
+}
+
+.progress {
+  width: 7rem;
+}
+
+@media screen and (max-width: 705px) {
+  .card-grid {
+    margin: 0px 00px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: minmax(175px, 175px) minmax(175px, 175px) minmax(175px, 175px);
+    grid-auto-rows: 175px;
+    gap: .6rem;
+  }
+
+  .card {
+    max-height: 170x;
+    max-width: 170px;
+  }
+
+  .card .back {
+    max-height: 170x;
+    max-width: 170px;
+    /* width: 140px; */
+    font-size: small;
+  }
+
+  .progress {
+    width: 5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .containerKyle {
+    max-width: 1000px;
+    margin: .5rem 0rem;
+  }
+
+  .card-grid {
+    margin: 0px 0px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: minmax(140px, 140px) minmax(140px, 140px);
+    grid-auto-rows: 150px;
+    gap: .5rem;
+  }
+
+  .card {
+    max-height: 140px;
+  }
+
+  .card .back {
+    max-height: 140px;
+    max-width: 100%;
+    font-size: small;
+  }
+
+  #order {
+    order: 10;
+  }
+
+  #orderB {
+    order: 20;
+  }
+
+  .title {
+    /* display: flex; */
+    flex-direction: column;
+  }
+
+  .title ul {
+    font-size: x-small;
+    margin-top: 5px;
+  }
+
+  .quickview-footer .arch {
+    font-size: small !important;
+  }
+
+  .progress {
+    width: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .card-grid {
+    margin: 0px 0px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    grid-template-rows: minmax(140px, 140px) minmax(140px, 140px);
+    grid-auto-rows: 140px;
+    gap: .5rem;
+  }
+
+  .card {
+    max-height: 140px;
+    max-width: 99%;
+  }
+
+  .card .back {
+    height: 140px;
+    max-width: 99%;
+    font-size: small;
+  }
+
+  .id100 {
+    max-height: 90px;
+    max-width: 90px;
+  }
+
+  .progress {
+    width: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(101px, 1fr));
+    grid-template-rows: minmax(110px, 110px) minmax(110px, 110px) minmax(110px, 110px);
+    grid-auto-rows: 110px;
+  }
+
+  .card {
+    height:
+      110px;
+  }
+
+  .card .back {
+    height: 100%;
+    width: 100%;
+    font-size: smaller;
+  }
+
+  #orderB,
+  .quickview-body .message-body ul {
+    font-size: 0.6rem !important;
+  }
+
+  .id100 {
+    max-height: 80px;
+    max-width: 80px;
+  }
+
+  .progress {
+    width: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-template-rows: minmax(90px, 90px) minmax(90px, 90px) minmax(90px, 90px);
+    grid-auto-rows: 90px;
+  }
+
+  .card {
+    width: 90px;
+    height:
+      90px;
+  }
+
+  .card .back {
+    height: 90px;
+    width: 90px;
+    font-size: smaller;
+  }
+
+  .id100 {
+    max-height: 70px;
+    max-width: 70px;
+  }
+
+  .progress {
+    width: 1rem;
+  }
+}
+
+img.cover {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+img.id100.cover {
+  display: block;
+  height: 95%;
+  width: 95%;
+  object-fit: cover;
+  width: 95%;
+}
+
+
+#orderB {
+  background-color: #666;
+}
+
+@keyframes mix-scale {
+  0% {
+    top: 42%;
+    left: 42%;
+    margin-right: -50%;
+    transform: translate(-150%, -50%);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+
+  100% {
+    top: 42%;
+    left: 42%;
+    margin-right: -50%;
+    transform: scale(1, 1);
+  }
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* align-content: normal; */
+}
+
+.clicked {
+  /* display: inline-block; */
+  /* transform: scale(1.2);  */
+  animation: clicked 0.2s ease-in-out alternate;
+  animation-iteration-count: 2;
+}
+
+@keyframes clicked {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+button#jikan:hover {
+  /* opacity: 0.8; */
+}
+
+button#jikan:active {
+  /* transform: translate(0, 1.5px); */
+  /* transform: scale(1.1); */
+  /* border-bottom: none; */
+}
+
+.quickview-body td {
+  line-height: 1.8rem;
+  /* color: rgb(248, 74, 103); */
+}

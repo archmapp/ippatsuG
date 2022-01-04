@@ -1,0 +1,56 @@
+:root {
+	--ripple-radius: 50px;
+	--ripple-color: #f03a5f;
+	--ripple-hover: #f85a7a;
+	--ripple-active: #fc889f;
+}
+
+.btn {
+	display: inline-block;
+	position: relative;
+	/* top: 0;
+			left: 0; */
+	height: var(--ripple-radius);
+	padding: 0 var(--ripple-radius);
+	background: var(--ripple-color);
+	border: 2px solidvar(--ripple-color);
+	border-radius: 3px;
+	text-align: center;
+	color: #fff;
+	/* line-height: 50px; */
+	overflow: hidden;
+	transition: all 0.3s ease-in;
+}
+.btn:hover {
+	background: var(--ripple-hover);
+}
+/* .btn:active span::after { */
+.btn:active::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: calc(var(--ripple-radius) * 2);
+	height: calc(var(--ripple-radius) * 2);
+	/* width: 100px;
+			height: 100px; */
+	border-radius: 100%;
+	margin-top: calc(-1 * var(--ripple-radius));
+	margin-left: calc(-1 * var(--ripple-radius));
+	/* margin-top: -50px;
+			margin-left: -50px; */
+	content: '';
+	background: var(--ripple-active);
+	opacity: 0;
+	animation: ripple 0.3s 1 ease-out;
+}
+
+@keyframes ripple {
+	0% {
+		opacity: 1;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1);
+	}
+}
