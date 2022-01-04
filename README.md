@@ -1,3 +1,8 @@
+git remote -v 
+origin  https://github.com/archmapp/ippatsuG.git (fetch)
+origin  https://github.com/archmapp/ippatsuG.git (push)
+
+
 npm uninstall gh-pages
 npm install gh-pages --save-dev
 npm run deploy

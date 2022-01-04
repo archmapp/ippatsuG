@@ -2,7 +2,7 @@
   "name": "flashcard-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://archmapp.github.io/ippatsu",
+  "homepage": "https://archmapp.github.io/ippatsuG",
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "netlify-cli": "^8.0.6"
