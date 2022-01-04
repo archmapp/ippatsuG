@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ippatsu/static/css/main.6705b4d6.chunk.css",
+    "main.js": "/ippatsu/static/js/main.cbb8413c.chunk.js",
+    "main.js.map": "/ippatsu/static/js/main.cbb8413c.chunk.js.map",
+    "runtime-main.js": "/ippatsu/static/js/runtime-main.1d9f1c30.js",
+    "runtime-main.js.map": "/ippatsu/static/js/runtime-main.1d9f1c30.js.map",
+    "static/js/2.4be9bf0d.chunk.js": "/ippatsu/static/js/2.4be9bf0d.chunk.js",
+    "static/js/2.4be9bf0d.chunk.js.map": "/ippatsu/static/js/2.4be9bf0d.chunk.js.map",
+    "index.html": "/ippatsu/index.html",
+    "precache-manifest.ac93886f2b59c5a4fcb730526fcbe276.js": "/ippatsu/precache-manifest.ac93886f2b59c5a4fcb730526fcbe276.js",
+    "service-worker.js": "/ippatsu/service-worker.js",
+    "static/css/main.6705b4d6.chunk.css.map": "/ippatsu/static/css/main.6705b4d6.chunk.css.map",
+    "static/js/2.4be9bf0d.chunk.js.LICENSE.txt": "/ippatsu/static/js/2.4be9bf0d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d9f1c30.js",
+    "static/js/2.4be9bf0d.chunk.js",
+    "static/css/main.6705b4d6.chunk.css",
+    "static/js/main.cbb8413c.chunk.js"
+  ]
+}
